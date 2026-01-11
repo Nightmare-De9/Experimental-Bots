@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VizKa Experimental Bots</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h2 class="logo">VizKa</h2>
+
+    <div class="bot-btn active" data-bot="beta">
+      🧠 VizKaBeta
+      <span>Thought Bot</span>
+    </div>
+
+    <div class="bot-btn" data-bot="potha">
+      🌀 VizKaPotha
+      <span>Vacant × Thought</span>
+    </div>
+
+    <div class="bot-btn" data-bot="parpotha">
+      🤖 VizKaParPotha
+      <span>VKP × JohnBot</span>
+    </div>
+  </aside>
+
+  <!-- Chat Area -->
+  <main id="chat-area">
+
+    <header id="chat-header">
+      <h3 id="bot-title">VizKaBeta — Thought Bot</h3>
+      <p id="bot-desc">Deep thinking and structured responses</p>
+    </header>
+
+    <section id="messages"></section>
+
+    <footer id="input-area">
+      <textarea id="userInput" placeholder="Ask something..."></textarea>
+      <button id="sendBtn">Send</button>
+    </footer>
+
+  </main>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
