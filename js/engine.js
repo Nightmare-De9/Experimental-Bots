@@ -1,6 +1,9 @@
 const KEY = "PUT_OPENROUTER_KEY";
 const MODEL = "mistralai/mistral-small-3.1-24b-instruct:free";
 
+let emotion = 0; // -1 to +1
+const moodFill = document.getElementById("moodFill");
+
 const chat = document.getElementById("chat");
 const input = document.getElementById("msg");
 const send = document.getElementById("send");
@@ -70,9 +73,28 @@ async function ask(msg){
   return data.choices[0].message.content;
 }
 
+function updateEmotionFromText(t){
+  t=t.toLowerCase();
+  let d=0;
+
+  if(["hate","kill","end","nothing","worthless","die"].some(w=>t.includes(w))) d-=0.4;
+  if(["thanks","good","nice","love"].some(w=>t.includes(w))) d+=0.2;
+
+  emotion = emotion*0.85 + d*0.15;
+  emotion = Math.max(-1,Math.min(1,emotion));
+  updateMoodBar();
+}
+
+function updateMoodBar(){
+  const pct = ((emotion+1)/2)*100;
+  moodFill.style.width = pct+"%";
+}
+
 /* ================= SEND ================= */
 
 send.onclick = async ()=>{
+  updateEmotionFromText(txt);
+
   const txt=input.value.trim();
   if(!txt) return;
 
