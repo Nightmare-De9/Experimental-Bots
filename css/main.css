@@ -67,3 +67,29 @@ button{
   padding:12px 18px;
   border:1px solid #333;
 }
+
+#moodWrap{
+  padding:8px 14px;
+  border-bottom:1px solid #222;
+}
+
+#moodLabel{
+  font-size:12px;
+  opacity:.7;
+  margin-bottom:4px;
+}
+
+#moodBar{
+  height:6px;
+  background:#222;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+#moodFill{
+  height:100%;
+  width:50%;
+  background:linear-gradient(90deg,#4ade80,#facc15,#f87171);
+  transition:width .5s ease;
+}
+
